@@ -27,5 +27,4 @@ The raw data files come from the following sources:
 - <a href="https://data.worldbank.org/indicator/HD.HCI.OVRL?cid=GGH_e_hcpexternal_en_ext" target="_blank">The World Bank's human capital index database</a>
 - <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank">Penn world tables</a>
 
-[go](http://stackoverflow.com){:target="_blank" rel="noopener"}
 
