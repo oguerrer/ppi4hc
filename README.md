@@ -4,7 +4,7 @@ This repository contains the code and data to replicate the analysis performed i
 
 ## The structure
 The repository is organized into three folders:
-- Code: contains all the scripts needed to process the raw datasets and perform the simulations for the analysis
+- `code`: contains all the scripts needed to process the raw datasets and perform the simulations for the analysis
 - Data: provides all the necessary data
 - Figures: provides high resolution files of all the figures in the report 
 
