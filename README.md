@@ -5,8 +5,12 @@
 <sup>1</sup> The Alan Turing Institute, London
 <sup>2</sup> Centro de Investigación y Docencia Económicas (CIDE), Mexico City
 
-
+## Description
 This repository contains the code and data to replicate the analysis performed in the report with the same title.
+These outputs are part of a project to understand the multidimensional and interconnected impact of public spending across various dimensions of human capital development.
+The study focuses in Mexico as its social policy regulator, CONEVAL, provides a comprehensive dataset of highly granular government programs with expenditure amounts and outcome indicators across time.
+The analysis uses the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> framework to model the conections between expenditure and performance.
+The report presents various types of analysis that aim at identifying potential opportunities and challenges in coordinating expenditure strategies that aim at improving Mexico's stock of human capital.
 
 ## The structure
 The repository is organized into three folders:
@@ -22,8 +26,8 @@ Files from 11 to 20 calibrate the PPI model and run all the experiments.
 Scripts 21 onwards produce all the figures in the report and saves them in the `figures` folder.
 Once all files have been run, the user can take the output data files and replicate the figures presented in the report.
 
-## Policy Priority Inference
-The analysis requires the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through Pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>.
+## Policy Priority Inference (PPI)
+The analysis requires the <a href="https://policypriority.org" target="_blank">PPI</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through Pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>.
 
 ## How to use
 If all the necessary libraries have been properly installed, all needed is to clone this repository (preserving the folder structure) and run each script sequentially.
