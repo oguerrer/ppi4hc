@@ -8,7 +8,7 @@
 
 ## Description
 This repository contains the code and data to replicate the analysis performed in the report with the same title.
-These outputs are part of work comissioned by the <a href="https://www.worldbank.org/en/publication/human-capital" target="_blank">World Bank Human Capital Project</a> to improve our understanding of the multidimensional and interconnected impact of public spending across various dimensions of human capital development.
+These outputs are part of work commissioned by the <a href="https://www.worldbank.org/en/publication/human-capital" target="_blank">World Bank Human Capital Project</a> to improve our understanding of the multidimensional and interconnected impact of public spending across various dimensions of human capital development.
 The study focuses in Mexico as its social policy regulator, CONEVAL, provides a comprehensive dataset of highly granular government programs with expenditure amounts and outcome indicators across time.
 The analysis uses the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> framework to model the connections between expenditure and performance.
 The report presents various types of analysis that aim at identifying potential opportunities and challenges in coordinating expenditure strategies that aim at improving Mexico's stock of human capital.
@@ -28,7 +28,7 @@ Scripts 21 onwards produce all the figures in the report and saves them in the `
 Once all files have been run, the user can take the output data files and replicate the figures presented in the report.
 
 ## Policy Priority Inference (PPI)
-The analysis requires the <a href="https://policypriority.org" target="_blank">PPI</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through Pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>.
+The analysis requires the <a href="https://policypriority.org" target="_blank">PPI</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>.
 
 ## How to use
 If all the necessary libraries have been properly installed, all needed is to clone this repository (preserving the folder structure) and run each script sequentially.
