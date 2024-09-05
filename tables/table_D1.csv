@@ -1,0 +1,50 @@
+﻿Label,Programme Name,Policy Area,Age Groups
+ServEduSec,Higher secondary education services,Education,Youths
+ServEduUni,Higher education and graduate services,Education,Young Adults
+ProdITEdu,Production and dissemination of educational materials,Education,Children; Youths; Young Adults; Middle-age Adults; Elderly
+ServHPSport,Sport support,Health,Young Adults
+SciRes\&TechDev,Scientific research and technological development,Education,Young Adults; Middle-age Adults
+ProfNatRegistry,National registry of professionals and their associations,Education,Young Adults
+InfrEdu,Educational services infrastructure and maintenance programme,Education,Children; Youths; Young Adults
+EduLag,Adult education (INEA),Education,Youths; Young Adults; Middle-age Adults; Elderly
+EquiEduBasic,Community initial and basic education,Education,Children; Youths
+EduGrant,Scholarship programme Elisa Acuña,Education,Youths; Young Adults; Middle-age Adults
+TrainTeach,Teacher professional development programme,Education,Middle-age Adults
+ChildEngLang,National English programme,Education,Children; Young Adults; Middle-age Adults
+StreEduDO,Subsidies for decentralized state organizations,Education,Youths; Young Adults
+StreEduAlign,Support for education centers and organizations,Education,Youths; Young Adults
+TrainHRHealth,Training for health human resources,Health,Young Adults; Middle-age Adults
+ResDevHealth,Research and technological development in health,Health,Middle-age Adults
+EquiHealth,Health support (equal access),Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+PrevAddict,Prevention and care against addictions,Health,Youths; Young Adults; Middle-age Adults; Elderly
+ProgVaccine,Vaccination programme,Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+ServSocInt,Comprehensive social assistance services,Minorities \& EDI,Children; Youths; Young Adults; Middle-age Adults; Elderly
+ChildRights,Protection of children and adolescents rights,Minorities \& EDI,Children; Youths
+DisabRights,Caring programme for people with disabilities,Minorities \& EDI,Children; Youths; Young Adults; Middle-age Adults; Elderly
+StreHealthServ,Strengthening medical care,Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+LaborRights,Execution of Labor Policy's programmes and actions,Working Conditions,Young Adults; Middle-age Adults
+TrainWork,Building capacity for increased productivity,Working Conditions,Young Adults; Middle-age Adults
+PlaceFormEmpl,Employment support programme (PAE),Working Conditions,Young Adults; Middle-age Adults
+SustNatRes,Conservation programme for sustainable development,Working Conditions,Young Adults; Middle-age Adults
+ServWater,Drinking water services (drainage and treatment),Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+InfrHydAgr,Hydro-agricultural infrastructure support programme,Working Conditions,Young Adults; Middle-age Adults
+HealthPoverty,IMSS-BIENESTAR programme,Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+SeniorRights,Services to groups with special needs,Minorities \& EDI,Elderly
+EquiOppYouth,Delivery of comprehensive youth policies,Minorities \& EDI,Youths
+CashTransSPFam,Support programme for the well-being of working mothers' children,Social Protection,Children; Youths; Young Adults
+ResearchHC,Scientific research (development and innovation),Education,Young Adults
+UniGrant,Postgraduate scholarships and research quality support,Education,Young Adults
+NatSysRes,National research system,Education,Young Adults; Middle-age Adults
+EquiOppWom,Strengthening the mainstreaming of the gender perspective,Minorities \& EDI,Youths; Young Adults; Middle-age Adults
+EquiEduIndig,Indigenous people education support program,Education,Children; Youths; Young Adults
+IndigRights,Programme for the comprehensive well-being of indigenous people,Minorities \& EDI,Children; Youths; Young Adults; Middle-age Adults; Elderly
+PrevDisIMSS,Prevention and control of diseases (IMSS),Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+ServHealthWork,Health care at work,Working Conditions,Young Adults; Middle-age Adults
+ServDaycare,Daycare services,Social Protection,Children
+PrevDisSecTer,Health support (IMSS),Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+SocWelfIMSS,Social benefits,Social Protection,Children; Youths; Young Adults; Middle-age Adults; Elderly
+MedicineISSSTE,Provision of medicines,Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+EquiWomISSSTE,Gender equality,Minorities \& EDI,Youths; Young Adults; Middle-age Adults
+EquiDisabISSSTE,Support to people with disabilities,Minorities \& EDI,Children; Youths; Young Adults; Middle-age Adults; Elderly
+PrevCommDis,Prevention and control of diseases (ISSSTE) ,Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
+PrevDisISSSTE,Health support (ISSSTE),Health,Children; Youths; Young Adults; Middle-age Adults; Elderly
