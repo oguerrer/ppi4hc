@@ -12,11 +12,16 @@ The repository is organized into three folders:
 The code is organized into sequential Python scripts. They should be run in the order indicated by the number in the filenames.
 Files from 1 to 10 are for processing data.
 Files from 11 to 20 calibrate the PPI model and run all the experiments.
-Scripts 21 onwards produce all the figures in the report.
+Scripts 21 onwards produce all the figures in the report and saves them in the `figures` folder.
 Once all files have been run, the user can take the output data files and replicate the figures presented in the report.
 
 ## Policy Priority Inference
 The analysis requires the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through Pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>.
+
+## How to use
+If all the necessary libraries have been properly installed, all needed is to clone this repository (preserving the folder structure) and run each script sequentially.
+The repository already provides all the intermediate data files, so it is not necessary to run every single script.
+For example, if you want to modify the experiments from section 4.1 (sensitivity analysis), you can go straight to script 12, modify it, and run it.
 
 ## Data sources
 The raw data files come from the following sources:
