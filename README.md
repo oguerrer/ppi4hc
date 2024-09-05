@@ -1,5 +1,4 @@
-# Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Priority Inference Investigation
-# Data and code repository
+# Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Priority Inference Investigation [data and code repository]
 
 ### Authors: Omar A. Guerrero<sup>1</sup>, Daniele Guariso<sup>1</sup>, and Gonzalo Castañeda<sup>2</sup>
 
