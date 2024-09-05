@@ -9,7 +9,7 @@
 This repository contains the code and data to replicate the analysis performed in the report with the same title.
 These outputs are part of a project to understand the multidimensional and interconnected impact of public spending across various dimensions of human capital development.
 The study focuses in Mexico as its social policy regulator, CONEVAL, provides a comprehensive dataset of highly granular government programs with expenditure amounts and outcome indicators across time.
-The analysis uses the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> framework to model the conections between expenditure and performance.
+The analysis uses the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> framework to model the connections between expenditure and performance.
 The report presents various types of analysis that aim at identifying potential opportunities and challenges in coordinating expenditure strategies that aim at improving Mexico's stock of human capital.
 
 ## The structure
