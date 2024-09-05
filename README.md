@@ -12,6 +12,7 @@ The repository is organized into three folders:
 The code is organized into sequential Python scripts. They should be run in the order indicated by the number in the filenames.
 Files from 1 to 10 are for processing data.
 Files from 11 to 20 calibrate the PPI model and run all the experiments.
+Scripts 21 onwards produce all the figures in the report.
 Once all files have been run, the user can take the output data files and replicate the figures presented in the report.
 
 ## Policy Priority Inference
