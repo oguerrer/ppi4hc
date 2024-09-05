@@ -1,6 +1,7 @@
 # Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Priority Inference Investigation
+# Data and code repository
 
-Authors: Omar A. Guerrero<sup>1</sup>, Daniele Guariso<sup>1</sup>, and Gonzalo Castañeda<sup>2</sup>
+### Authors: Omar A. Guerrero<sup>1</sup>, Daniele Guariso<sup>1</sup>, and Gonzalo Castañeda<sup>2</sup>
 
 <sup>1</sup> The Alan Turing Institute, London
 <sup>2</sup> Centro de Investigación y Docencia Económicas (CIDE), Mexico City
