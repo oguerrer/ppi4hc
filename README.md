@@ -6,7 +6,8 @@ This repository contains the code and data to replicate the analysis performed i
 The repository is organized into three folders:
 - `code`: contains all the scripts needed to process the raw datasets and perform the simulations for the analysis
 - `data`: provides all the necessary data
-- `figures`: provides high resolution files of all the figures in the report 
+- `figures`: provides high resolution files of all the figures in the report
+- `tables`: contains the tables from the report
 
 ## The code
 The code is organized into sequential Python scripts. They should be run in the order indicated by the number in the filenames.
