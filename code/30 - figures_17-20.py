@@ -11,7 +11,7 @@ home =  os.getcwd()[:-4]
 ##################################################
 ##################################################
 #
-# Creates figures 17 to 20 (section 4.3)
+# Creates figures 15 a 18
 #
 ##################################################
 ##################################################
@@ -85,6 +85,34 @@ list_patches = [mpatches.Patch(color=df_patches.loc[i,"Colour"], label=df_patche
 
 
 
+plt.figure(figsize=(8,4.5))
+sorted_indices = df_id.sort_values('Derecho Social o Bienestar Económico (directo)').index.values
+labels = []
+all_diffs = (B_flat - B).mean(axis=1)
+plt.plot(-100, -10000, '.', mec='w', mfc='k', markersize=20, label='year-specific')
+plt.plot(-100, -10000, 's', mec='w', mfc='k', markersize=7, label='average')
+for i, index in enumerate(np.argsort(all_diffs)):
+    differences = B_flat[index,:] - B[index,:]
+    for j, diff in enumerate(differences):
+        plt.plot( i, diff, '.', mfc=df_id.loc[index,"Colour"], mec='w', markersize=1.5*(j+1)+5, alpha=.5)
+    plt.plot( i, differences.mean(), 's', mfc=df_id.loc[index,"Colour"], mec='w', markersize=7)    
+    labels.append(df_id.iloc[index].Label)
+plt.xlim(-1, i+1)
+plt.ylim(4, 22)
+plt.ylabel('expenditure increase (pesos pc)', fontsize=14)
+plt.gca().set_xticks(range(i+1))
+plt.gca().set_xticklabels(labels, fontsize="x-small", rotation="vertical" )
+plt.gca().spines[['right', 'top']].set_visible(False)
+l1 = plt.legend(fontsize=10, loc=2)
+plt.gca().add_artist(l1)
+l2 = plt.legend(handles=list_patches, fontsize=10, loc=1, ncol=2)
+plt.gca().add_artist(l2)
+plt.tight_layout()
+plt.savefig(home+'figures/figure_15a.pdf')
+plt.show()
+
+
+
 
 plt.figure(figsize=(8,4.5))
 sorted_indices = df_id.sort_values('Derecho Social o Bienestar Económico (directo)').index.values
@@ -109,37 +137,7 @@ plt.gca().add_artist(l1)
 l2 = plt.legend(handles=list_patches, fontsize=10, loc=1, ncol=2)
 plt.gca().add_artist(l2)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_17a.pdf')
-plt.show()
-
-
-
-
-
-plt.figure(figsize=(8,4.5))
-sorted_indices = df_id.sort_values('Derecho Social o Bienestar Económico (directo)').index.values
-labels = []
-all_diffs = (B_flat - B).mean(axis=1)
-plt.plot(-100, -10000, '.', mec='w', mfc='k', markersize=20, label='year-specific')
-plt.plot(-100, -10000, 's', mec='w', mfc='k', markersize=7, label='average')
-for i, index in enumerate(np.argsort(all_diffs)):
-    differences = B_flat[index,:] - B[index,:]
-    for j, diff in enumerate(differences):
-        plt.plot( i, diff, '.', mfc=df_id.loc[index,"Colour"], mec='w', markersize=1.5*(j+1)+5, alpha=.5)
-    plt.plot( i, differences.mean(), 's', mfc=df_id.loc[index,"Colour"], mec='w', markersize=7)    
-    labels.append(df_id.iloc[index].Label)
-plt.xlim(-1, i+1)
-plt.ylim(4, 22)
-plt.ylabel('expenditure increase (pesos pc)', fontsize=14)
-plt.gca().set_xticks(range(i+1))
-plt.gca().set_xticklabels(labels, fontsize="x-small", rotation="vertical" )
-plt.gca().spines[['right', 'top']].set_visible(False)
-l1 = plt.legend(fontsize=10, loc=2)
-plt.gca().add_artist(l1)
-l2 = plt.legend(handles=list_patches, fontsize=10, loc=1, ncol=2)
-plt.gca().add_artist(l2)
-plt.tight_layout()
-plt.savefig(home+'figures/figure_17b.pdf')
+plt.savefig(home+'figures/figure_15b.pdf')
 plt.show()
 
 
@@ -149,18 +147,6 @@ plt.show()
 
 
 
-plt.figure(figsize=(8,4.5))
-for right, group in df_id.groupby(by='Derecho Social o Bienestar Económico (directo)'):
-    indices = group.index.values
-    serie = np.sum(B_wop[indices,:] - B[indices,:], axis=0)
-    plt.plot(colYearsInt, serie, linewidth=3, color=group.Colour.values[0])
-    plt.plot(colYearsInt, serie, '.', markersize=20, color=group.Colour.values[0])
-plt.gca().spines[['right', 'top']].set_visible(False)
-plt.ylabel('additional funds (pesos pc)', fontsize=14)
-plt.xlabel('year', fontsize=14)
-plt.tight_layout()
-plt.savefig(home+'figures/figure_18a.pdf')
-plt.show()
 
 
 
@@ -175,8 +161,30 @@ plt.gca().spines[['right', 'top']].set_visible(False)
 plt.ylabel('additional funds (pesos pc)', fontsize=14)
 plt.xlabel('year', fontsize=14)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_18b.pdf')
+plt.savefig(home+'figures/figure_16a.pdf')
 plt.show()
+
+
+
+
+plt.figure(figsize=(8,4.5))
+for right, group in df_id.groupby(by='Derecho Social o Bienestar Económico (directo)'):
+    indices = group.index.values
+    serie = np.sum(B_wop[indices,:] - B[indices,:], axis=0)
+    plt.plot(colYearsInt, serie, linewidth=3, color=group.Colour.values[0])
+    plt.plot(colYearsInt, serie, '.', markersize=20, color=group.Colour.values[0])
+plt.gca().spines[['right', 'top']].set_visible(False)
+plt.ylabel('additional funds (pesos pc)', fontsize=14)
+plt.xlabel('year', fontsize=14)
+plt.tight_layout()
+plt.savefig(home+'figures/figure_16b.pdf')
+plt.show()
+
+
+
+
+
+
 
 
 
@@ -233,7 +241,7 @@ plt.gca().add_artist(l1)
 l2 = plt.legend(handles=list_patches, fontsize=10, loc=2, ncol=2)
 plt.gca().add_artist(l2)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_19.pdf')
+plt.savefig(home+'figures/figure_17.pdf')
 plt.show()
 
 
@@ -270,7 +278,7 @@ plt.gca().add_artist(l1)
 l2 = plt.legend(handles=list_patches, fontsize=10, loc=2, ncol=2)
 plt.gca().add_artist(l2)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_20.pdf')
+plt.savefig(home+'figures/figure_18.pdf')
 plt.show()
 
 

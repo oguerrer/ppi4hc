@@ -11,7 +11,7 @@ home =  os.getcwd()[:-4]
 ##################################################
 ##################################################
 #
-# Creates figures 15 and 16 (section 4.2)
+# Creates figures 13 and 14
 #
 ##################################################
 ##################################################
@@ -107,7 +107,7 @@ plt.ylim(-2, 102)
 plt.ylabel('final coverage', fontsize=14)
 plt.gca().spines[['right', 'top']].set_visible(False)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_15.pdf')
+plt.savefig(home+'figures/figure_13.pdf')
 plt.show()
 
 
@@ -140,7 +140,7 @@ plt.ylim(-1, 17)
 plt.xlim(-1, 40)
 plt.gca().spines[['right', 'top']].set_visible(False)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_16.pdf')
+plt.savefig(home+'figures/figure_14.pdf')
 plt.show()
 
 

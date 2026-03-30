@@ -13,7 +13,7 @@ home =  os.getcwd()[:-4]
 ##################################################
 ##################################################
 #
-# Creates figures 11 to 14 (section 4.1)
+# Creates figures 9 to 12
 #
 ##################################################
 ##################################################
@@ -126,7 +126,7 @@ plt.xlim(1, 35)
 plt.ylim(-.2, 2.02)
 plt.gca().spines[['right', 'top']].set_visible(False)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_11.pdf')
+plt.savefig(home+'figures/figure_9.pdf')
 plt.show()
 
 
@@ -146,7 +146,7 @@ plt.xticks(range(N), ticks_labels, fontsize="x-small", rotation="vertical" )
 plt.legend(handles=list_patches, fontsize=9, loc=2)
 plt.gca().spines[['right', 'top']].set_visible(False)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_12.pdf')
+plt.savefig(home+'figures/figure_10.pdf')
 plt.show()
 
 
@@ -176,7 +176,7 @@ plt.xlabel('percent coverage in 2022', fontsize=14)
 plt.legend(handles=list_patches, fontsize=9, loc=1, ncol=2)
 plt.gca().spines[['right', 'top']].set_visible(False)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_13.pdf')
+plt.savefig(home+'figures/figure_11.pdf')
 plt.show()
 
 
@@ -219,7 +219,7 @@ plt.ylim(-.1, 2.5)
 plt.xlim(-1, 40)
 plt.gca().spines[['right', 'top']].set_visible(False)
 plt.tight_layout()
-plt.savefig(home+'figures/figure_14.pdf')
+plt.savefig(home+'figures/figure_12.pdf')
 plt.show()
 
 

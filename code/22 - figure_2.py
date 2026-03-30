@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
-import os
+import os, warnings
 import pandas as pd
 import numpy as np
-
+warnings.simplefilter("ignore")
 
 home =  os.getcwd()[:-4]
 
@@ -14,63 +14,65 @@ home =  os.getcwd()[:-4]
 #########################
 #########################
 
-paises = sorted(['United States', 'Mexico', 'Chile', 'Peru', 'Colombia', 'Brazil', 'Argentina', 'Uruguay',
-          'Poland', 'Republic of Korea', 'Malaysia', 'Turkey', 'Thailand', 'Romania'])
+df22 = pd.read_excel(home+"/data/raw/IF2022_newlabels.xlsx", sheet_name="Inventario_2022")
+newlab = pd.read_excel(home+"/data/clean/Outcomes/labels_merging.xlsx", sheet_name="Sheet1")
 
 
-df = pd.read_excel(home+'data/raw/penn_tables.xlsx', sheet_name=2)
-df = df[['country', 'year', 'hc', 'ctfp', 'cn', 'emp', 'avh', 'pop', 'cgdpe']]
-df = df[df['country'].isin(paises)]
-df = df[(df['year'] >= 1989) & (df['year'] <= 2019)]
-df = df.sort_values(['country', 'year'])
-df['clr'] = df['cn'] / df['emp']
-df['cor'] = df['cn'] / df['cgdpe']
-df['gdppc'] = df['cgdpe'] / df['emp']
+df22.rename({ 'ID_RMC1' : "ID_RMC"}, inplace=True, axis=1)
+df22_small = df22[["ID_RMC", "SR", "SR_NEW", "Ejercido"]].copy()
+
+for i, row in df22_small.iterrows():
+    if row["ID_RMC"] in newlab.ID_RMC.values :
+        df22_small.loc[i,"SR_NEW"] = newlab.loc[newlab.ID_RMC==row["ID_RMC"],:]["Social Right"].values[0]        
+        
+for i,row in df22_small.iterrows():
+    df22_small.loc[i,"Ejercido"] = float(str(row["Ejercido"]).replace("$","").replace(",","").strip())
+
+df22_small["Ejercido_Perc"] = 0
+for i,row in df22_small.iterrows():
+    df22_small.loc[i,"Ejercido_Perc"] = df22_small.loc[i,"Ejercido"] / np.sum(df22_small.Ejercido)
+
+df22_small["SR_Perc"] = df22_small.groupby("SR_NEW")["Ejercido_Perc"].transform(np.sum)
+
+df22_sr = df22_small[["SR_NEW", "SR_Perc"]].copy().drop_duplicates().reset_index(drop=True)
 
 
-def growth_rate(series):
-    return ((series.pct_change() + 1).prod() ** (1/(len(series)-1)) - 1)*100
+dict_col = {'Minorities & EDI':'#FFCCCC',
+                'Social Protection':'#8EA9DB',
+                'Education':'#C65911',
+                'Working Conditions':'#FFC000',
+                'Health':'#A9D08E',
+    }
 
-growth_rates = df.groupby('country').agg({
-    'emp': growth_rate,
-    'ctfp': growth_rate,
-    'hc': growth_rate,
-    'clr': growth_rate,
-    'cor': growth_rate,
-    'gdppc': growth_rate
-})
+SR = [i for i in dict_col]
 
-growth_rates.columns = ['li', 'agtfp', 'aghc', 'agclr', 'cdepp', 'aggdppc']
+dict_label = {'Minorities & EDI':'Minorities\n& EDI',
+                'Education':'Education',
+                'Working Conditions':'Working\nConditions',
+                'Health':'Health',
+                'Social Protection':'Social\nProtection'
+    }
 
 
 
-plt.figure(figsize=(8, 4.5))
-bar_width = 0.15
-index = np.arange(len(paises))
-plt.bar(index, growth_rates['li'], bar_width, label='labor intensity', color='b')
-plt.bar(index + bar_width, growth_rates['aghc'], bar_width, label='human capital', color='g')
-plt.bar(index + 2*bar_width, growth_rates['cdepp'], bar_width, label='capital deepening', color='r')
-plt.bar(index + 3*bar_width, growth_rates['agtfp'], bar_width, label='total factor productivity', color='c')
-# plt.bar(index + 4*bar_width, growth_rates['aggdppc'], bar_width, label='GDP per capita growth', color='m')
-plt.scatter(index + 1.5*bar_width, growth_rates['aggdppc'], color='k', s=25, label='GDP per capita')
-plt.ylim(-2.5, 5)
-plt.xlim(-.25, 13.75)
-plt.ylabel('growth rates (%)', fontsize = 14)
-# plt.title('Growth Rates by Country and Factor', fontsize = 16)
-plt.xticks(index + 2*bar_width, paises, rotation=45, ha='right')
-plt.legend(fontsize=8, loc=8, ncol=3)
-plt.gca().spines[['right', 'top']].set_visible(False)
+
+i=0
+plt.figure(figsize=(8,4.5))
+for sr in SR:
+    plt.bar(i+1, round((df22_sr.loc[df22_sr.SR_NEW==sr,"SR_Perc"])*100,2), color=dict_col[sr])
+    plt.text(i+1, (df22_sr.loc[df22_sr.SR_NEW==sr,"SR_Perc"])*100 + 1, str(round(df22_sr.loc[df22_sr.SR_NEW==sr,"SR_Perc"].values[0]*100,2))+'%', 
+             ha="center", va="center", fontsize=12,
+             bbox=dict(facecolor='none', edgecolor='none', boxstyle='round', pad=.1, linewidth=.1))
+    i+=1
+plt.xlim(.5, 5.5)
+plt.gca().set_xticks(range(1, len(SR)+1))
+plt.ylabel('budget share in 2022', fontsize=14)
+plt.xlabel('policy area', fontsize=14)
+plt.gca().set_xticklabels([dict_label[i] for i in SR], fontsize=10, rotation=45)
+plt.gca().spines[['top', 'right']].set_visible(False)
 plt.tight_layout()
 plt.savefig(home+'figures/figure_2.pdf')
 plt.show()
-
-
-
-
-
-
-
-
 
 
 

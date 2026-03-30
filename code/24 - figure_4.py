@@ -10,7 +10,7 @@ home =  os.getcwd()[:-4]
 #########################
 #########################
 #
-# Creates figure 7
+# Creates figure 4
 #
 #########################
 #########################
@@ -85,7 +85,7 @@ plt.ylim(0, 5)
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 plt.tight_layout()
-plt.savefig(home+"figures/figure_7.pdf")
+plt.savefig(home+"figures/figure_4.pdf")
 plt.show()
 
 

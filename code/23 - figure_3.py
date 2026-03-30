@@ -12,7 +12,7 @@ home =  os.getcwd()[:-4]
 #########################
 #########################
 #
-# Creates figure 6
+# Creates figure 3
 #
 #########################
 #########################
@@ -97,7 +97,7 @@ plt.legend(handles=list_patches, fontsize=9, bbox_to_anchor=(1.2, 1.2))
 plt.ylim(0, 1.1)
 ax.axis("off")
 plt.tight_layout()
-plt.savefig(home+'figures/figure_6.pdf')
+plt.savefig(home+'figures/figure_3.pdf')
 plt.show()
 
 

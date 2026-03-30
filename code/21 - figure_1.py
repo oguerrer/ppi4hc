@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
-import os
+import os, warnings
 import pandas as pd
-
+import numpy as np
+warnings.simplefilter("ignore")
 
 home =  os.getcwd()[:-4]
 
@@ -13,73 +14,75 @@ home =  os.getcwd()[:-4]
 #########################
 #########################
 
-
-paises = ['United States', 'Mexico', 'Chile', 'Peru', 'Colombia', 'Brazil', 'Argentina', 'Uruguay', 
-          'Poland', 'Republic of Korea', 'Malaysia', 'Turkey', 'Thailand', 'Romania']
-df = pd.read_excel(home+'/data/raw/penn_tables.xlsx', sheet_name=2)
+df22 = pd.read_excel(home+"/data/raw/IF2022_newlabels.xlsx", sheet_name="Inventario_2022")
+newlab = pd.read_excel(home+"/data/clean/Outcomes/labels_merging.xlsx", sheet_name="Sheet1")
 
 
-df = df[['country', 'rgdpe', 'pop', 'year']]
-df = df[df['country'].isin(paises)]
-df_pivot = df.pivot(index='country', columns='year', values=['rgdpe', 'pop'])
-df_rgdppc = df_pivot['rgdpe'] / df_pivot['pop']
-df_gapusa = df_rgdppc.div(df_rgdppc.loc['United States'])
-df_gapusa = df_gapusa.T
+df22.rename({ 'ID_RMC1' : "ID_RMC"}, inplace=True, axis=1)
+df22_small = df22[["ID_RMC", "SR", "SR_NEW", "Ejercido"]].copy()
+
+for i, row in df22_small.iterrows():
+    if row["ID_RMC"] in newlab.ID_RMC.values :
+        df22_small.loc[i,"SR_NEW"] = newlab.loc[newlab.ID_RMC==row["ID_RMC"],:]["Social Right"].values[0]        
+        
+for i,row in df22_small.iterrows():
+    df22_small.loc[i,"Ejercido"] = float(str(row["Ejercido"]).replace("$","").replace(",","").strip())
+
+df22_small["Ejercido_Perc"] = 0
+for i,row in df22_small.iterrows():
+    df22_small.loc[i,"Ejercido_Perc"] = df22_small.loc[i,"Ejercido"] / np.sum(df22_small.Ejercido)
+
+df22_small["SR_Perc"] = df22_small.groupby("SR_NEW")["Ejercido_Perc"].transform(np.sum)
+
+df22_sr = df22_small[["SR_NEW", "SR_Perc"]].copy().drop_duplicates().reset_index(drop=True)
+
+
+dict_col = {'Minorities & EDI':'#FFCCCC',
+                'Social Protection':'#8EA9DB',
+                'Education':'#C65911',
+                'Working Conditions':'#FFC000',
+                'Health':'#A9D08E',
+    }
+
+SR = [i for i in dict_col]
+
+dict_label = {'Minorities & EDI':'Minorities\n& EDI',
+                'Education':'Education',
+                'Working Conditions':'Working\nConditions',
+                'Health':'Health',
+                'Social Protection':'Social\nProtection'
+    }
 
 
 
-fig, ax = plt.subplots(figsize=(8, 4.5))
-ax.set_ylabel('Ratio of GDP per capita\n(country / US)', fontsize=14)
-ax.grid(True, linestyle='--', alpha=0.7)
-plt.xticks(df_gapusa.index[::2], rotation=45)  # Mostrar cada cuatro años para evitar superposición
-filtered_df_gapusa = df_gapusa.loc['1982':'2019']
-for pais in df_gapusa.columns:
-    if pais != 'United States':
-        if pais == 'Mexico':
-            ax.plot(filtered_df_gapusa.index, filtered_df_gapusa[pais], '-.k', 
-                    label=pais, linewidth=3)
-        else:
-            ax.plot(filtered_df_gapusa.index, filtered_df_gapusa[pais], label=pais, linewidth=1.5, zorder=-1)
-plt.ylim(.07, .85)
-plt.xlim(1982, 2018)
-ax.legend(fontsize=8, loc='upper center', ncol=5)
-specific_point = filtered_df_gapusa.index[3]  
-specific_value = filtered_df_gapusa.loc[specific_point, 'Mexico']
-plt.gca().spines[['right', 'top']].set_visible(False)
+
+
+df22_small["SR_Prop"] = df22_small.groupby("SR_NEW")["ID_RMC"].transform("count")
+df22_small["SR_Prop"] = df22_small["SR_Prop"] / len(df22_small)
+df22_sr_prop = df22_small[["SR_NEW", "SR_Prop"]].copy().drop_duplicates().reset_index(drop=True)
+
+
+
+
+
+i=0
+plt.figure(figsize=(8,4.5))
+for sr in SR:
+    plt.bar(i+1, round((df22_sr_prop.loc[df22_sr_prop.SR_NEW==sr,"SR_Prop"])*100,2), color=dict_col[sr])
+    plt.text(i+1, (df22_sr_prop.loc[df22_sr_prop.SR_NEW==sr,"SR_Prop"])*100 + 2, str(round(df22_sr_prop.loc[df22_sr_prop.SR_NEW==sr,"SR_Prop"].values[0]*100,2))+'%', 
+             ha="center", va="center", fontsize=12,
+             bbox=dict(facecolor='none', edgecolor='none', boxstyle='round', pad=.1, linewidth=.1))
+    i+=1
+plt.ylim(0, 45)
+plt.xlim(.5, 5.5)
+plt.gca().set_xticks(range(1, len(SR)+1))
+plt.ylabel('programs in 2022', fontsize=14)
+plt.xlabel('policy area', fontsize=14)
+plt.gca().set_xticklabels([dict_label[i] for i in SR], fontsize=10, rotation=45)
+plt.gca().spines[['top', 'right']].set_visible(False)
+plt.tight_layout()
 plt.savefig(home+'figures/figure_1.pdf')
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
