@@ -1,17 +1,22 @@
 # Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Prioritization Investigation [data and code repository]
 
-### Authors: Omar A. Guerrero<sup>1</sup>, Daniele Guariso<sup>1</sup>, and Gonzalo Castañeda<sup>2</sup>
+### Authors: Omar A. Guerrero<sup>1</sup>, Daniele Guariso<sup>2</sup>, Gonzalo Castañeda<sup>3</sup>, and Michael Weber<sup>4</sup>
 
-<sup>1</sup> The Alan Turing Institute, London
+<sup>1</sup> University of Helsinki
+<sup>2</sup> Euro-Mediterranean Center on Climate Change
+<sup>3</sup> Centro de Investigación y Docencia Económicas (CIDE), Mexico City
+<sup>4</sup> The World Bank
 
-<sup>2</sup> Centro de Investigación y Docencia Económicas (CIDE), Mexico City
 
 ## Description
-This repository contains the code and data to replicate the analysis performed in the report with the same title.
-These outputs are part of work commissioned by the <a href="https://www.worldbank.org/en/publication/human-capital" target="_blank">World Bank Human Capital Project</a> to improve our understanding of the multidimensional and interconnected impact of public spending across various dimensions of human capital development.
-The study focuses in Mexico as its social policy regulator, CONEVAL, provides a comprehensive dataset of highly granular government programs with expenditure amounts and outcome indicators across time.
-The analysis uses the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> framework to model the connections between expenditure and performance.
-The report presents various types of analysis that aim at identifying potential opportunities and challenges in coordinating expenditure strategies that aim at improving Mexico's stock of human capital.
+This repository contains the code and data to replicate the analysis performed in the Workd Bank Working Paper titled: *Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Prioritization Investigation*.
+The analysis makes use of the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> framework to model connections between government expenditure and target indicator coverage in Mexico between 2016 and 2022.
+The paper presents various types of analysis that aim at identifying potential opportunities and challenges in coordinating expenditure strategies that aim at improving Mexico's stock of human capital.
+
+
+## Paper abstract
+*This paper uses AI-enhanced agent computing to determine how to allocate budgetary resources within a large set of heterogeneous government programs targeting human capital. Our approach considers essential features of the budget allocation process: multidimensionality, interdependencies between policy issues, and the political economy of public officials' collective action. We use highly disaggregated Mexican data covering the 2016-2022 period across 49 human capital programs of the federal government and focus on how expenditure affects program coverage (the proportion of the population with a public problem and who has access to various government benefits to mitigate those problems) in the short run. We answer the following research questions: how sensitive is program coverage to changes in public expenditure?; what are the structural bottlenecks behind poor coverage response?; and what are the optimal budgetary allocations that could boost the performance of a multidimensional objective function?*
+
 
 ## The structure
 The repository is organized into three folders:
@@ -20,6 +25,7 @@ The repository is organized into three folders:
 - `figures`: provides high resolution files of all the figures in the report
 - `tables`: contains the tables from the report
 
+
 ## The code
 The code is organized into sequential Python scripts. They should be run in the order indicated by the number in the filenames.
 Files from 1 to 10 are for processing data.
@@ -27,13 +33,16 @@ Files from 11 to 20 calibrate the PPI model and run all the experiments.
 Scripts 21 onwards produce all the figures in the report and saves them in the `figures` folder.
 Once all files have been run, the user can take the output data files and replicate the figures presented in the report.
 
+
 ## Policy Priority Inference (PPI)
-The analysis requires the <a href="https://policypriority.org" target="_blank">PPI</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>.
+The analysis requires the <a href="https://policypriority.org" target="_blank">PPI</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>. The open source-code for the PPI framework can be found in its <a href="https://github.com/oguerrer/ppi" target="_blank">official repository</a>.
+
 
 ## How to use
-If all the necessary libraries have been properly installed, all needed is to clone this repository (preserving the folder structure) and run each script sequentially.
+If all the necessary libraries have been properly installed, all needed is cloning this repository (preserving the folder structure) and run each script sequentially.
 The repository already provides all the intermediate data files, so it is not necessary to run every single script.
 For example, if you want to modify the experiments from section 4.1 (sensitivity analysis), you can go straight to script 12, modify it, and run it.
+
 
 ## Data sources
 The raw data files come from the following sources:
@@ -44,5 +53,12 @@ The raw data files come from the following sources:
 - <a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank">The World Bank's total population index database</a>
 - <a href="https://data.worldbank.org/indicator/HD.HCI.OVRL?cid=GGH_e_hcpexternal_en_ext" target="_blank">The World Bank's human capital index database</a>
 - <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank">Penn world tables</a>
+
+
+
+
+
+
+
 
 
