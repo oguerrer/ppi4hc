@@ -1,4 +1,4 @@
-# Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Prioritization Investigation [data and code repository]
+# README for the Reproducibility Package for Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Prioritization Investigation
 
 ### Authors: Omar A. Guerrero<sup>1</sup>, Daniele Guariso<sup>2</sup>, Gonzalo Castañeda<sup>3</sup>, and Michael Weber<sup>4</sup>
 
@@ -8,7 +8,7 @@
 <sup>4</sup> The World Bank
 
 
-## Description
+## Overview
 This repository contains the code and data to replicate the analysis performed in the Workd Bank Working Paper titled: *Human Capital Expenditure and Its Effectiveness on Multi-Programme Coverage: A Policy Prioritization Investigation*.
 The analysis makes use of the <a href="https://policypriority.org" target="_blank">Policy Priority Inference (PPI)</a> framework to model connections between government expenditure and target indicator coverage in Mexico between 2016 and 2022.
 The paper presents various types of analysis that aim at identifying potential opportunities and challenges in coordinating expenditure strategies that aim at improving Mexico's stock of human capital.
@@ -38,20 +38,78 @@ Once all files have been run, the user can take the output data files and replic
 The analysis requires the <a href="https://policypriority.org" target="_blank">PPI</a> toolkit, which can be <a href="https://pypi.org/project/policy-priority-inference/" target="_blank">installed for Python through pypi</a>. Further information on PPI can be found in the book: <a href="https://www.cambridge.org/core/books/complexity-economics-and-sustainable-development/BD6CCB51DF29A5FE3638B3B99C7D0CB1" target="_blank">Complexity Economics and Sustainable Development</a>. The open source-code for the PPI framework can be found in its <a href="https://github.com/oguerrer/ppi" target="_blank">official repository</a>.
 
 
-## How to use
+## Data Availability Statement
+1. Inventario CONEVAL de Programas y Acciones Federales de Desarrollo Social
+Source: CONEVAL
+Year: 2023
+URL: https://www.coneval.org.mx/evaluacion/ipfe
+Access Date (Month-Year): 10-2024
+Note: -
+Access Type: Open
+License: -
+License URL: -
+Citation: CONEVAL. 2023. "Inventario CONEVAL de Programas y Acciones Federales de Desarrollo Social" [dataset]. https://www.coneval.org.mx/evaluacion/ipfe. Accessed 10-2024.
+
+2. Worldwide Governance Indicators
+Source: World Bank
+Year: 2023
+URL: https://www.worldbank.org/en/publication/worldwide-governance-indicators
+Access Date (Month-Year): 10-2024
+Note: -
+Access Type: Open
+License: -
+License URL: -
+Citation: World Bank. 2023. "Worldwide Governance Indicators" [dataset]. https://www.worldbank.org/en/publication/worldwide-governance-indicators. Accessed 10-2024.
+
+3. Consumer Price Indices
+Source: World Bank
+Year: 2023
+URL: https://data360.worldbank.org/en/dataset/FAO_CP
+Access Date (Month-Year): 10-2024
+Note: -
+Access Type: Open
+License: -
+License URL: -
+Citation: World Bank. 2023. "Consumer Price Indices" [dataset]. https://data360.worldbank.org/en/dataset/FAO_CP. Accessed 10-2024.
+
+4. World Population Prospects
+Source: United Nations Department of Economic and Social Affairs
+Year: 2023
+URL: https://population.un.org/wpp/
+Access Date (Month-Year): 10-2024
+Note: -
+Access Type: Open
+License: -
+License URL: -
+Citation: United Nations Department of Economic and Social Affairs. 2023. "World Population Prospects" [dataset]. https://population.un.org/wpp/. Accessed 10-2024.
+
+5. Human Capital Index
+Source: World Bank
+Year: 2023
+URL: https://humancapital.worldbank.org
+Access Date (Month-Year): 10-2024
+Note: -
+Access Type: Open
+License: -
+License URL: -
+Citation: World Bank. 2023. "Human Capital Index" [dataset]. https://humancapital.worldbank.org. Accessed 10-2024.
+
+
+## Statement about Rights
+I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
+I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permissions are documented in the LICENSE.txt file.
+
+
+## Instructions for Replicators
 If all the necessary libraries have been properly installed, all needed is cloning this repository (preserving the folder structure) and run each script sequentially.
 The repository already provides all the intermediate data files, so it is not necessary to run every single script.
 For example, if you want to modify the experiments from section 4.1 (sensitivity analysis), you can go straight to script 12, modify it, and run it.
 
 
-## Data sources
-The raw data files come from the following sources:
-
-- <a href="https://www.coneval.org.mx/evaluacion/ipfe/Paginas/default.aspx" target="_blank">CONEVAL's federal inventory of social programs (contains data on both expenditure and performance)</a>
-- <a href="https://www.worldbank.org/en/publication/worldwide-governance-indicators" target="_blank">The World Bank's worldwide governance indicators</a>
-- <a href="https://prosperitydata360.worldbank.org/en/dataset/IMF+CPI" target="_blank">The World Bank's consumer price index database</a>
-- <a href="https://population.un.org/wpp/" target="_blank">United Nations World Population Prospects</a>
-- <a href="https://humancapital.worldbank.org/en/home" target="_blank">The World Bank's human capital data portal</a>
+## Software Requirements
+- Python 3.12+ and R 4.0.5
+- Python dependencies: pandas, numpy, matplotlib, scipy, scikit-learn, joblib, rpy2, policy-priority-inference
+- R dependencies: sparsebn, sparsebnUtils, ccdrAlgorithm
 
 
 
