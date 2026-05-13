@@ -5,6 +5,7 @@ import policy_priority_inference as ppi
 
 home =  os.getcwd()[:-4]
 
+np.random.seed(0) 
 
 #########################
 #########################

@@ -68,11 +68,8 @@ B = df_exp[colYears].values
 B_dict = dict([(i,[i]) for i in range(N)])
 Bs = get_dirsbursement_schedule(B, B_dict, T)
 
-baseline = np.array(Parallel(n_jobs=20)(delayed(ppi.run_ppi)(I0, alpha, alpha_prime, beta, 
-                                                             A=A, qm=qm, rl=rl, 
-                    Imax=Imax, Imin=Imin, Bs=Bs, B_dict=B_dict) for sample in range(1000)))
-Is_baseline = baseline.mean(axis=0)[0]
-IF = Is_baseline[:,-1]
+df_base = pd.read_csv(home+'/data/sims/baseline.csv')
+IF = df_base.values[:,-1]
 
 
 
