@@ -247,7 +247,7 @@ for i, index in enumerate(sorted_indices):
     plt.plot(i, 100*(IFF[index]-IF0[index])/(B_flat.sum(axis=1)[index] - B.sum(axis=1)[index]), '*', mfc=df_id.loc[index,"Colour"], mec='w', markersize=15, alpha=1)
     labels.append(df_id.iloc[index].Label)
 plt.xlim(-1, i+1)
-plt.ylim(-.01, .12)
+plt.ylim(-.01, .2)
 plt.ylabel('additional percent coverage\n per additional pesos per capita', fontsize=14)
 plt.gca().set_xticks(range(i+1))
 plt.gca().set_xticklabels(labels, fontsize="x-small", rotation="vertical" )
